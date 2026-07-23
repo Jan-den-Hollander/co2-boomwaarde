@@ -271,6 +271,7 @@ body.printing #print-report{display:block !important;}
   <button onclick="setTab('afweging')" data-i18n="tab_afweging">Afweging</button>
   <button onclick="setTab('species')" data-i18n="tab_species">Boomsoorten</button>
   <button onclick="setTab('method')" data-i18n="tab_method">Methodologie</button>
+  <button onclick="setTab('toelichting')" data-i18n="tab_toelichting">Toelichting</button>
 </nav>
 
 <main>
@@ -417,11 +418,28 @@ body.printing #print-report{display:block !important;}
       <h3 data-i18n="m_h1">Groeicurve</h3>
       <p data-i18n="m_p1">De stamdiameter op leeftijd t wordt geschat met een verzadigingscurve: <code>DBH(t) = DBHmax × (1 − e^(−t/t63))</code>. Bij t63 jaar heeft de boom ongeveer 63% van zijn maximale diameter bereikt — een lage t63 betekent een snelle groeier, een hoge t63 een langzame, langlevende soort.</p>
       <h3 data-i18n="m_h2">Biomassa &amp; koolstof</h3>
-      <p data-i18n="m_p2">Bovengrondse biomassa wordt geschat als <code>AGB = c × DBH^2.5</code>, met c afhankelijk van de houtdichtheidsgroep van de soort. Totale biomassa (incl. wortels) = AGB × 1,25. Koolstofgehalte = 47,5% van droge biomassa. CO₂-equivalent = koolstof × 3,67 (molaire massaverhouding CO₂/C).</p>
+      <p data-i18n="m_p2">Bovengrondse biomassa wordt geschat als <code>AGB = c × DBH^2.5</code>, met c afhankelijk van de houtdichtheidsgroep van de soort. Totale biomassa (incl. wortels) = AGB × 1,26. Koolstofgehalte = 47% van droge biomassa. CO₂-equivalent = koolstof × 3,67 (molaire massaverhouding CO₂/C = 44/12).</p>
       <h3 data-i18n="m_h3">Verlies bij kap</h3>
       <p data-i18n="m_p3">Het "verlies" is niet de reeds opgeslagen koolstof (die blijft grotendeels aanwezig zolang het hout niet vergaat of verbrandt), maar de vastlegging die de boom in de gekozen referentieperiode nog zou hebben toegevoegd als hij was blijven staan.</p>
       <h3 data-i18n="m_h4">Compensatie</h3>
       <p data-i18n="m_p4">Het aantal benodigde compensatiebomen wordt berekend door het verlies te delen door wat één nieuw geplante boom van de gekozen soort in dezelfde periode zelf zou vastleggen — dit toont expliciet dat jonge aanplant vaak jarenlang nauwelijks compenseert.</p>
+    </div>
+    <div class="card">
+      <h3 data-i18n="m_h5">Bronnen &amp; verifieerbaarheid</h3>
+      <p data-i18n="m_p5">De koolstoffractie (47%) en de wortel/stam-verhouding (0,26 voor gematigde klimaatzones) zijn de standaardwaarden uit de <a href="https://www.ipcc-nggip.iges.or.jp/public/2006gl/vol4.html" target="_blank" rel="noopener">IPCC 2006 Guidelines for National Greenhouse Gas Inventories, Volume 4 (Agriculture, Forestry and Other Land Use), hoofdstuk 4</a>. De molaire massaverhouding CO₂/C (3,67) volgt direct uit de scheikunde (44/12) en is geen aanname.</p>
+      <p data-i18n="m_p6">Het diameter-naar-biomassa-verband (een machtsfunctie van de stamdiameter) is de gangbare aanpak in stadsboom-onderzoek, zoals toegepast door <a href="https://www.nrs.fs.usda.gov/pubs/gtr/gtr_ne186.pdf" target="_blank" rel="noopener">Nowak (1994), Atmospheric carbon dioxide reduction by Chicago's urban forest</a>. De exacte coëfficiënten per dichtheidsgroep (licht/midden/zwaar) in deze app zijn echter een eigen, vereenvoudigde schatting — gekalibreerd om realistische orde-grootte-uitkomsten te geven, niet overgenomen uit één specifieke publicatie per boomsoort. Ook de groeisnelheid (t63), maximale diameter en maximale leeftijd per soort zijn praktijkschattingen, geen gemeten data per individuele boom.</p>
+      <p data-i18n="m_p7">Wil je dit zelf natekenen of verbeteren met betere data? Alle groeiparameters en coëfficiënten staan open en aanpasbaar in het tabblad Boomsoorten — inclusief een knop om terug te zetten naar de standaardwaarden. Voor nauwkeuriger, soortspecifiek cijfermateriaal kun je onder meer terecht bij het <a href="https://www.ipcc-nggip.iges.or.jp/public/2006gl/vol4.html" target="_blank" rel="noopener">IPCC-rapport zelf</a>, de <a href="https://www.itreetools.org/" target="_blank" rel="noopener">i-Tree-tools van de USDA Forest Service</a>, of Nederlands boomtaxatie-onderzoek (bijv. via Wageningen University &amp; Research).</p>
+    </div>
+  </section>
+
+  <!-- ===================== TOELICHTING ===================== -->
+  <section id="panel-toelichting" class="panel method">
+    <div class="card">
+      <p data-i18n="tl_p1">🌳 Bij een kapvergunning wordt vaak gekeken naar schaduw, overlast of vermeende stormschade. Maar één ding wordt bijna nooit meegewogen: hoeveel CO₂ die boom vastlegt — en wat we verliezen zodra hij verdwijnt.</p>
+      <p data-i18n="tl_p2">Bomen zijn CO₂-vastleggers. Hoe groter en ouder de boom, hoe groter die vastleggingscapaciteit. Kap je zo'n boom, dan kost dat niet alleen groen, maar ook jarenlange, opgebouwde CO₂-opslag. Eén jong boompje terugplanten lost dat niet zomaar op: afhankelijk van de grootte heb je vaak meerdere jonge bomen nodig, en het duurt jaren voordat die dezelfde vastleggingscapaciteit bereiken — als de aanplant al aanslaat.</p>
+      <p data-i18n="tl_p3">In de praktijk van een kapvergunning wordt meestal alleen een herplantplicht opgelegd — aantal en type vervangende bomen — zonder dat er echt een CO₂-boekhouding aan te pas komt. Bouwprojecten, wegen en andere activiteiten worden intussen wél kritisch tegen het licht gehouden op hun CO₂-uitstoot. Waarom dan niet de boom die daarvoor moet wijken?</p>
+      <p data-i18n="tl_p4">Deze app, CO₂-Boomwaarde, is daarop het antwoord: op basis van boomsoort, diameter en leeftijd berekent hij hoeveel CO₂ een boom al heeft vastgelegd, wat er bij kap aan toekomstige vastlegging verloren gaat, wat dat financieel zou vertegenwoordigen, en hoeveel jonge bomen je nodig hebt om dat verlies binnen een gekozen periode goed te maken.</p>
+      <p data-i18n="tl_p5">Zou CO₂-vastlegging standaard onderdeel moeten zijn van de afweging bij een kapvergunning — naast schaduw, overlast en herplantplicht? Dat is de vraag waarmee dit initiatief begon.</p>
     </div>
   </section>
 
@@ -521,8 +539,8 @@ function co2AtAge(sp, age){
   if(dbh <= 0) return 0;
   const c = COEF[sp.dens] ?? 0.075;
   const agb = c * Math.pow(dbh, 2.5);       // kg droge bovengrondse biomassa
-  const total = agb * 1.25;                  // incl. wortels
-  const carbon = total * 0.475;               // kg koolstof
+  const total = agb * 1.26;                   // incl. wortels (IPCC 2006, root:shoot temperate ≈0,26)
+  const carbon = total * 0.47;                // kg koolstof (IPCC 2006 default carbon fraction 0,47)
   const co2 = carbon * 3.67;                  // kg CO2
   return co2;
 }
@@ -554,10 +572,20 @@ nl:{
  h_coeff:'Biomassa-coëfficiënten per dichtheidsgroep', hint_coeff:'Coëfficiënt c in AGB(kg) = c × diameter(cm)^2.5',
  l_light:'Licht', l_mid:'Midden', l_heavy:'Zwaar',
  m_disclaimer:'Dit is een indicatieve, educatieve schatting op basis van algemene allometrische vuistregels — géén officieel erkende taxatiemethode zoals de houtwaarde-richtlijn. Gebruik het als onderbouwing van een redenering, niet als exacte schadeclaim.',
- m_h1:'Groeicurve', m_p1:'De stamdiameter op leeftijd t wordt geschat met een verzadigingscurve: DBH(t) = DBHmax × (1 − e^(−t/t63)). Bij t63 jaar heeft de boom ongeveer 63% van zijn maximale diameter bereikt — een lage t63 betekent een snelle groeier, een hoge t63 een langzame, langlevende soort.',
- m_h2:'Biomassa & koolstof', m_p2:'Bovengrondse biomassa wordt geschat als AGB = c × DBH^2.5, met c afhankelijk van de houtdichtheidsgroep van de soort. Totale biomassa (incl. wortels) = AGB × 1,25. Koolstofgehalte = 47,5% van droge biomassa. CO₂-equivalent = koolstof × 3,67.',
+ m_h1:'Groeicurve', m_p1:'De stamdiameter op leeftijd t wordt geschat met een verzadigingscurve: <code>DBH(t) = DBHmax × (1 − e^(−t/t63))</code>. Bij t63 jaar heeft de boom ongeveer 63% van zijn maximale diameter bereikt — een lage t63 betekent een snelle groeier, een hoge t63 een langzame, langlevende soort.',
+ m_h2:'Biomassa & koolstof', m_p2:'Bovengrondse biomassa wordt geschat als AGB = c × DBH^2.5, met c afhankelijk van de houtdichtheidsgroep van de soort. Totale biomassa (incl. wortels) = AGB × 1,26. Koolstofgehalte = 47% van droge biomassa. CO₂-equivalent = koolstof × 3,67 (44/12).',
  m_h3:'Verlies bij kap', m_p3:'Het "verlies" is niet de reeds opgeslagen koolstof (die blijft grotendeels aanwezig zolang het hout niet vergaat of verbrandt), maar de vastlegging die de boom in de gekozen referentieperiode nog zou hebben toegevoegd als hij was blijven staan.',
  m_h4:'Compensatie', m_p4:'Het aantal benodigde compensatiebomen wordt berekend door het verlies te delen door wat één nieuw geplante boom van de gekozen soort in dezelfde periode zelf zou vastleggen — dit toont expliciet dat jonge aanplant vaak jarenlang nauwelijks compenseert.',
+ m_h5:'Bronnen & verifieerbaarheid',
+ m_p5:'De koolstoffractie (47%) en de wortel/stam-verhouding (0,26 voor gematigde klimaatzones) zijn de standaardwaarden uit de <a href="https://www.ipcc-nggip.iges.or.jp/public/2006gl/vol4.html" target="_blank" rel="noopener">IPCC 2006 Guidelines for National Greenhouse Gas Inventories, Volume 4 (Agriculture, Forestry and Other Land Use)</a>, hoofdstuk 4. De molaire massaverhouding CO2/C (3,67) volgt direct uit de scheikunde (44/12) en is geen aanname.',
+ m_p6:'Het diameter-naar-biomassa-verband (een machtsfunctie van de stamdiameter) is de gangbare aanpak in stadsboom-onderzoek, zoals toegepast door <a href="https://www.nrs.fs.usda.gov/pubs/gtr/gtr_ne186.pdf" target="_blank" rel="noopener">Nowak (1994), Atmospheric carbon dioxide reduction by Chicago\'s urban forest</a>. De exacte coëfficiënten per dichtheidsgroep (licht/midden/zwaar) in deze app zijn echter een eigen, vereenvoudigde schatting — gekalibreerd om realistische orde-grootte-uitkomsten te geven, niet overgenomen uit één specifieke publicatie per boomsoort. Ook de groeisnelheid (t63), maximale diameter en maximale leeftijd per soort zijn praktijkschattingen, geen gemeten data per individuele boom.',
+ m_p7:'Wil je dit zelf natekenen of verbeteren met betere data? Alle groeiparameters en coëfficiënten staan open en aanpasbaar in het tabblad Boomsoorten — inclusief een knop om terug te zetten naar de standaardwaarden. Voor nauwkeuriger, soortspecifiek cijfermateriaal kun je onder meer terecht bij het <a href="https://www.ipcc-nggip.iges.or.jp/public/2006gl/vol4.html" target="_blank" rel="noopener">IPCC-rapport zelf</a>, de <a href="https://www.itreetools.org/" target="_blank" rel="noopener">i-Tree-tools van de USDA Forest Service</a>, of Nederlands boomtaxatie-onderzoek (bijv. via Wageningen University &amp; Research).',
+ tab_toelichting:'Toelichting',
+ tl_p1:'🌳 Bij een kapvergunning wordt vaak gekeken naar schaduw, overlast of vermeende stormschade. Maar één ding wordt bijna nooit meegewogen: hoeveel CO₂ die boom vastlegt — en wat we verliezen zodra hij verdwijnt.',
+ tl_p2:'Bomen zijn CO₂-vastleggers. Hoe groter en ouder de boom, hoe groter die vastleggingscapaciteit. Kap je zo\'n boom, dan kost dat niet alleen groen, maar ook jarenlange, opgebouwde CO₂-opslag. Eén jong boompje terugplanten lost dat niet zomaar op: afhankelijk van de grootte heb je vaak meerdere jonge bomen nodig, en het duurt jaren voordat die dezelfde vastleggingscapaciteit bereiken — als de aanplant al aanslaat.',
+ tl_p3:'In de praktijk van een kapvergunning wordt meestal alleen een herplantplicht opgelegd — aantal en type vervangende bomen — zonder dat er echt een CO₂-boekhouding aan te pas komt. Bouwprojecten, wegen en andere activiteiten worden intussen wél kritisch tegen het licht gehouden op hun CO₂-uitstoot. Waarom dan niet de boom die daarvoor moet wijken?',
+ tl_p4:'Deze app, CO₂-Boomwaarde, is daarop het antwoord: op basis van boomsoort, diameter en leeftijd berekent hij hoeveel CO₂ een boom al heeft vastgelegd, wat er bij kap aan toekomstige vastlegging verloren gaat, wat dat financieel zou vertegenwoordigen, en hoeveel jonge bomen je nodig hebt om dat verlies binnen een gekozen periode goed te maken.',
+ tl_p5:'Zou CO₂-vastlegging standaard onderdeel moeten zijn van de afweging bij een kapvergunning — naast schaduw, overlast en herplantplicht? Dat is de vraag waarmee dit initiatief begon.',
  footer_note:'Indicatieve tool, geen officiële taxatienorm.',
  unit_kg:'kg CO₂', unit_ton:'ton CO₂', unit_kgjr:'kg CO₂/jr', unit_euro:'€', unit_bomen:'bomen', unit_jaar:'jaar',
  derived_age:'Geschatte leeftijd op basis van diameter: ', derived_dbh:'Geschatte diameter op basis van leeftijd: ',
@@ -620,10 +648,20 @@ it:{
  h_coeff:'Coefficienti di biomassa per gruppo di densità', hint_coeff:'Coefficiente c in AGB(kg) = c × diametro(cm)^2.5',
  l_light:'Leggero', l_mid:'Medio', l_heavy:'Pesante',
  m_disclaimer:'Questa è una stima indicativa ed educativa basata su regole allometriche generali — non un metodo di valutazione ufficialmente riconosciuto. Usalo per sostenere un ragionamento, non come richiesta di danni esatta.',
- m_h1:'Curva di crescita', m_p1:'Il diametro del tronco all\'età t è stimato con una curva di saturazione: DBH(t) = DBHmax × (1 − e^(−t/t63)). A t63 anni l\'albero ha raggiunto circa il 63% del diametro massimo.',
- m_h2:'Biomassa e carbonio', m_p2:'La biomassa aerea è stimata come AGB = c × DBH^2.5, con c dipendente dal gruppo di densità del legno. Biomassa totale (incl. radici) = AGB × 1,25. Contenuto di carbonio = 47,5% della biomassa secca. Equivalente CO₂ = carbonio × 3,67.',
+ m_h1:'Curva di crescita', m_p1:'Il diametro del tronco all\'età t è stimato con una curva di saturazione: <code>DBH(t) = DBHmax × (1 − e^(−t/t63))</code>. A t63 anni l\'albero ha raggiunto circa il 63% del diametro massimo.',
+ m_h2:'Biomassa e carbonio', m_p2:'La biomassa aerea è stimata come AGB = c × DBH^2.5, con c dipendente dal gruppo di densità del legno. Biomassa totale (incl. radici) = AGB × 1,26. Contenuto di carbonio = 47% della biomassa secca. Equivalente CO₂ = carbonio × 3,67 (44/12).',
  m_h3:'Perdita con l\'abbattimento', m_p3:'La "perdita" non è il carbonio già immagazzinato, ma la fissazione che l\'albero avrebbe aggiunto nel periodo di riferimento scelto se fosse rimasto in piedi.',
  m_h4:'Compensazione', m_p4:'Il numero di alberi compensativi necessari si calcola dividendo la perdita per quanto un nuovo albero della specie scelta fisserebbe nello stesso periodo.',
+ m_h5:'Fonti e verificabilità',
+ m_p5:'La frazione di carbonio (47%) e il rapporto radici/fusto (0,26 per le zone climatiche temperate) sono i valori standard delle <a href="https://www.ipcc-nggip.iges.or.jp/public/2006gl/vol4.html" target="_blank" rel="noopener">IPCC 2006 Guidelines for National Greenhouse Gas Inventories, Volume 4 (Agriculture, Forestry and Other Land Use)</a>, capitolo 4. Il rapporto di massa molare CO2/C (3,67) deriva direttamente dalla chimica (44/12) e non è un\'assunzione.',
+ m_p6:'La relazione diametro-biomassa (una funzione di potenza del diametro del tronco) è l\'approccio comune negli studi sugli alberi urbani, come applicato da <a href="https://www.nrs.fs.usda.gov/pubs/gtr/gtr_ne186.pdf" target="_blank" rel="noopener">Nowak (1994), Atmospheric carbon dioxide reduction by Chicago\'s urban forest</a>. I coefficienti esatti per gruppo di densità (leggero/medio/pesante) in questa app sono però una stima propria, semplificata — calibrata per fornire risultati di ordine di grandezza realistici, non ripresa da una singola pubblicazione per specie. Anche la velocità di crescita (t63), il diametro massimo e l\'età massima per specie sono stime pratiche, non dati misurati per singolo albero.',
+ m_p7:'Vuoi verificare tu stesso o migliorare con dati migliori? Tutti i parametri di crescita e i coefficienti sono aperti e modificabili nella scheda Specie arboree — con un pulsante per ripristinare i valori predefiniti. Per dati più precisi e specifici per specie puoi consultare il <a href="https://www.ipcc-nggip.iges.or.jp/public/2006gl/vol4.html" target="_blank" rel="noopener">rapporto IPCC stesso</a>, gli <a href="https://www.itreetools.org/" target="_blank" rel="noopener">strumenti i-Tree dell\'USDA Forest Service</a>, o la ricerca olandese sulla valutazione degli alberi (ad es. tramite Wageningen University &amp; Research).',
+ tab_toelichting:'Contesto',
+ tl_p1:'🌳 Per un permesso di abbattimento si guarda spesso a ombra, disagio o presunto rischio di tempesta. Ma una cosa non viene quasi mai considerata: quanta CO₂ fissa quell\'albero — e cosa perdiamo quando scompare.',
+ tl_p2:'Gli alberi sono organismi che fissano CO₂. Più grande e vecchio è l\'albero, maggiore è la sua capacità di fissazione. Abbattere un albero simile non costa solo verde, ma anche anni di CO₂ accumulata. Ripiantare un giovane albero non risolve subito il problema: a seconda della dimensione servono spesso più alberi giovani, e ci vogliono anni prima che raggiungano la stessa capacità — sempre che l\'impianto attecchisca.',
+ tl_p3:'Nella pratica dei permessi di abbattimento si impone di solito solo un obbligo di reimpianto — numero e tipo di alberi sostitutivi — senza una vera contabilità della CO₂. Progetti edilizi, strade e altre attività vengono invece valutati criticamente sulle loro emissioni di CO₂. Perché non anche l\'albero che deve cedere il passo?',
+ tl_p4:'Questa app, CO₂-Valore Albero, è la risposta: in base a specie, diametro ed età calcola quanta CO₂ un albero ha già fissato, quanta fissazione futura si perde con l\'abbattimento, cosa rappresenterebbe economicamente, e quanti alberi giovani servono per compensare quella perdita entro un periodo scelto.',
+ tl_p5:'La fissazione di CO₂ dovrebbe far parte per default della valutazione di un permesso di abbattimento — accanto a ombra, disagio e obbligo di reimpianto? È la domanda da cui è nata questa iniziativa.',
  footer_note:'Strumento indicativo, non norma di valutazione ufficiale.',
  unit_kg:'kg CO₂', unit_ton:'ton CO₂', unit_kgjr:'kg CO₂/anno', unit_euro:'€', unit_bomen:'alberi', unit_jaar:'anni',
  derived_age:'Età stimata dal diametro: ', derived_dbh:'Diametro stimato dall\'età: ',
@@ -672,7 +710,7 @@ function setLang(l){
   document.getElementById('btn-it').classList.toggle('active', l==='it');
   document.querySelectorAll('[data-i18n]').forEach(el=>{
     const key = el.getAttribute('data-i18n');
-    if(I18N[l][key]) el.textContent = I18N[l][key];
+    if(I18N[l][key]) el.innerHTML = I18N[l][key];
   });
   buildSpeciesSelects();
   buildSpeciesTable();
