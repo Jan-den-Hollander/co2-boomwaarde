@@ -194,6 +194,7 @@ table.species input{width:60px;padding:4px 6px;font-size:12px;}
 table.species tr:hover td{background:var(--surface2);}
 .badge{font-size:10px;padding:2px 6px;border-radius:10px;background:var(--surface2);color:var(--text-dim);white-space:nowrap;}
 .badge.evergreen{color:var(--green);}
+.lat-name{font-style:italic;color:var(--text-dim);font-size:10.5px;}
 
 .method p{font-size:13px;line-height:1.65;color:var(--text);margin:0 0 12px;}
 .method code{background:var(--surface2);padding:2px 5px;border-radius:4px;font-size:12px;}
@@ -452,41 +453,41 @@ Gratis · niet-commercieel · ongewijzigd &nbsp;|&nbsp;
 <script>
 /* ---------------- Species dataset ---------------- */
 const DEFAULT_SPECIES = [
- {id:'populier', nl:'Populier', it:'Pioppo', t63:12, maxDBH:120, maxAge:100, dens:'licht', evergreen:false},
- {id:'wilg', nl:'Schietwilg', it:'Salice', t63:12, maxDBH:100, maxAge:80, dens:'licht', evergreen:false},
- {id:'paulownia', nl:'Paulownia', it:'Paulonia', t63:8, maxDBH:90, maxAge:70, dens:'licht', evergreen:false},
- {id:'balsempopulier', nl:'Balsempopulier', it:'Pioppo balsamico', t63:12, maxDBH:110, maxAge:90, dens:'licht', evergreen:false},
- {id:'zwartepopulier', nl:'Zwarte populier', it:'Pioppo nero', t63:12, maxDBH:130, maxAge:150, dens:'licht', evergreen:false},
- {id:'berk', nl:'Ruwe berk', it:'Betulla', t63:20, maxDBH:60, maxAge:100, dens:'licht', evergreen:false},
- {id:'els', nl:'Zwarte els', it:'Ontano nero', t63:20, maxDBH:70, maxAge:120, dens:'midden', evergreen:false},
- {id:'es', nl:'Gewone es', it:'Frassino', t63:25, maxDBH:100, maxAge:200, dens:'midden', evergreen:false},
- {id:'robinia', nl:'Robinia (valse acacia)', it:'Robinia', t63:20, maxDBH:90, maxAge:150, dens:'midden', evergreen:false},
- {id:'esdoorn', nl:'Noorse esdoorn', it:'Acero riccio', t63:25, maxDBH:100, maxAge:150, dens:'midden', evergreen:false},
- {id:'plataan', nl:'Gewone plataan', it:'Platano', t63:22, maxDBH:150, maxAge:300, dens:'midden', evergreen:false},
- {id:'kastanje', nl:'Tamme kastanje', it:'Castagno', t63:25, maxDBH:130, maxAge:400, dens:'midden', evergreen:false},
- {id:'paardenkastanje', nl:'Paardenkastanje', it:'Ippocastano', t63:30, maxDBH:110, maxAge:250, dens:'midden', evergreen:false},
- {id:'zomereik', nl:'Zomereik', it:'Farnia', t63:40, maxDBH:150, maxAge:500, dens:'zwaar', evergreen:false},
- {id:'wintereik', nl:'Wintereik', it:'Rovere', t63:50, maxDBH:140, maxAge:500, dens:'zwaar', evergreen:false},
- {id:'beuk', nl:'Gewone beuk', it:'Faggio', t63:40, maxDBH:140, maxAge:300, dens:'zwaar', evergreen:false},
- {id:'haagbeuk', nl:'Haagbeuk', it:'Carpino bianco', t63:35, maxDBH:80, maxAge:150, dens:'zwaar', evergreen:false},
- {id:'linde', nl:'Hollandse linde', it:'Tiglio', t63:35, maxDBH:130, maxAge:400, dens:'midden', evergreen:false},
- {id:'winterlinde', nl:'Winterlinde', it:'Tiglio selvatico', t63:40, maxDBH:120, maxAge:500, dens:'midden', evergreen:false},
- {id:'iep', nl:'Gladde iep', it:'Olmo', t63:30, maxDBH:110, maxAge:200, dens:'midden', evergreen:false},
- {id:'walnoot', nl:'Zwarte walnoot', it:'Noce nero', t63:35, maxDBH:100, maxAge:200, dens:'zwaar', evergreen:false},
- {id:'vogelkers', nl:'Vogelkers', it:'Ciliegio selvatico', t63:20, maxDBH:60, maxAge:80, dens:'midden', evergreen:false},
- {id:'moerascipres', nl:'Moerascipres', it:'Cipresso calvo', t63:35, maxDBH:120, maxAge:600, dens:'midden', evergreen:false},
- {id:'grovenden', nl:'Grove den', it:'Pino silvestre', t63:35, maxDBH:90, maxAge:300, dens:'midden', evergreen:true},
- {id:'corsden', nl:'Corsicaanse den', it:'Pino nero', t63:35, maxDBH:100, maxAge:300, dens:'midden', evergreen:true},
- {id:'fijnspar', nl:'Fijnspar', it:'Abete rosso', t63:30, maxDBH:100, maxAge:300, dens:'midden', evergreen:true},
- {id:'douglas', nl:'Douglasspar', it:'Douglasia', t63:25, maxDBH:150, maxAge:500, dens:'midden', evergreen:true},
- {id:'zilverspar', nl:'Zilverspar', it:'Abete bianco', t63:45, maxDBH:140, maxAge:400, dens:'midden', evergreen:true},
- {id:'taxus', nl:'Taxus', it:'Tasso', t63:60, maxDBH:100, maxAge:1000, dens:'zwaar', evergreen:true},
- {id:'cipres', nl:'Cipres', it:'Cipresso', t63:30, maxDBH:80, maxAge:300, dens:'midden', evergreen:true},
- {id:'ceder', nl:'Ceder', it:'Cedro', t63:50, maxDBH:150, maxAge:800, dens:'midden', evergreen:true},
- {id:'sequoia', nl:'Sequoia', it:'Sequoia', t63:30, maxDBH:300, maxAge:2000, dens:'midden', evergreen:true},
- {id:'vlier', nl:'Gewone vlier', it:'Sambuco', t63:10, maxDBH:30, maxAge:60, dens:'licht', evergreen:false},
- {id:'hazelaar', nl:'Hazelaar', it:'Nocciolo', t63:15, maxDBH:25, maxAge:80, dens:'midden', evergreen:false},
- {id:'meidoorn', nl:'Meidoorn', it:'Biancospino', t63:25, maxDBH:40, maxAge:150, dens:'midden', evergreen:false},
+ {id:'populier', nl:'Populier', it:'Pioppo', lat:'Populus x canadensis', t63:12, maxDBH:120, maxAge:100, dens:'licht', evergreen:false},
+ {id:'wilg', nl:'Schietwilg', it:'Salice', lat:'Salix alba', t63:12, maxDBH:100, maxAge:80, dens:'licht', evergreen:false},
+ {id:'paulownia', nl:'Paulownia', it:'Paulonia', lat:'Paulownia tomentosa', t63:8, maxDBH:90, maxAge:70, dens:'licht', evergreen:false},
+ {id:'balsempopulier', nl:'Balsempopulier', it:'Pioppo balsamico', lat:'Populus balsamifera', t63:12, maxDBH:110, maxAge:90, dens:'licht', evergreen:false},
+ {id:'zwartepopulier', nl:'Zwarte populier', it:'Pioppo nero', lat:'Populus nigra', t63:12, maxDBH:130, maxAge:150, dens:'licht', evergreen:false},
+ {id:'berk', nl:'Ruwe berk', it:'Betulla', lat:'Betula pendula', t63:20, maxDBH:60, maxAge:100, dens:'licht', evergreen:false},
+ {id:'els', nl:'Zwarte els', it:'Ontano nero', lat:'Alnus glutinosa', t63:20, maxDBH:70, maxAge:120, dens:'midden', evergreen:false},
+ {id:'es', nl:'Gewone es', it:'Frassino', lat:'Fraxinus excelsior', t63:25, maxDBH:100, maxAge:200, dens:'midden', evergreen:false},
+ {id:'robinia', nl:'Robinia (valse acacia)', it:'Robinia', lat:'Robinia pseudoacacia', t63:20, maxDBH:90, maxAge:150, dens:'midden', evergreen:false},
+ {id:'esdoorn', nl:'Noorse esdoorn', it:'Acero riccio', lat:'Acer platanoides', t63:25, maxDBH:100, maxAge:150, dens:'midden', evergreen:false},
+ {id:'plataan', nl:'Gewone plataan', it:'Platano', lat:'Platanus x hispanica', t63:22, maxDBH:150, maxAge:300, dens:'midden', evergreen:false},
+ {id:'kastanje', nl:'Tamme kastanje', it:'Castagno', lat:'Castanea sativa', t63:25, maxDBH:130, maxAge:400, dens:'midden', evergreen:false},
+ {id:'paardenkastanje', nl:'Paardenkastanje', it:'Ippocastano', lat:'Aesculus hippocastanum', t63:30, maxDBH:110, maxAge:250, dens:'midden', evergreen:false},
+ {id:'zomereik', nl:'Zomereik', it:'Farnia', lat:'Quercus robur', t63:40, maxDBH:150, maxAge:500, dens:'zwaar', evergreen:false},
+ {id:'wintereik', nl:'Wintereik', it:'Rovere', lat:'Quercus petraea', t63:50, maxDBH:140, maxAge:500, dens:'zwaar', evergreen:false},
+ {id:'beuk', nl:'Gewone beuk', it:'Faggio', lat:'Fagus sylvatica', t63:40, maxDBH:140, maxAge:300, dens:'zwaar', evergreen:false},
+ {id:'haagbeuk', nl:'Haagbeuk', it:'Carpino bianco', lat:'Carpinus betulus', t63:35, maxDBH:80, maxAge:150, dens:'zwaar', evergreen:false},
+ {id:'linde', nl:'Hollandse linde', it:'Tiglio', lat:'Tilia x europaea', t63:35, maxDBH:130, maxAge:400, dens:'midden', evergreen:false},
+ {id:'winterlinde', nl:'Winterlinde', it:'Tiglio selvatico', lat:'Tilia cordata', t63:40, maxDBH:120, maxAge:500, dens:'midden', evergreen:false},
+ {id:'iep', nl:'Gladde iep', it:'Olmo', lat:'Ulmus minor', t63:30, maxDBH:110, maxAge:200, dens:'midden', evergreen:false},
+ {id:'walnoot', nl:'Zwarte walnoot', it:'Noce nero', lat:'Juglans nigra', t63:35, maxDBH:100, maxAge:200, dens:'zwaar', evergreen:false},
+ {id:'vogelkers', nl:'Vogelkers', it:'Ciliegio a grappoli', lat:'Prunus padus', t63:20, maxDBH:60, maxAge:80, dens:'midden', evergreen:false},
+ {id:'moerascipres', nl:'Moerascipres', it:'Cipresso calvo', lat:'Taxodium distichum', t63:35, maxDBH:120, maxAge:600, dens:'midden', evergreen:false},
+ {id:'grovenden', nl:'Grove den', it:'Pino silvestre', lat:'Pinus sylvestris', t63:35, maxDBH:90, maxAge:300, dens:'midden', evergreen:true},
+ {id:'corsden', nl:'Corsicaanse den', it:'Pino nero', lat:'Pinus nigra', t63:35, maxDBH:100, maxAge:300, dens:'midden', evergreen:true},
+ {id:'fijnspar', nl:'Fijnspar', it:'Abete rosso', lat:'Picea abies', t63:30, maxDBH:100, maxAge:300, dens:'midden', evergreen:true},
+ {id:'douglas', nl:'Douglasspar', it:'Douglasia', lat:'Pseudotsuga menziesii', t63:25, maxDBH:150, maxAge:500, dens:'midden', evergreen:true},
+ {id:'zilverspar', nl:'Zilverspar', it:'Abete bianco', lat:'Abies alba', t63:45, maxDBH:140, maxAge:400, dens:'midden', evergreen:true},
+ {id:'taxus', nl:'Taxus', it:'Tasso', lat:'Taxus baccata', t63:60, maxDBH:100, maxAge:1000, dens:'zwaar', evergreen:true},
+ {id:'cipres', nl:'Cipres', it:'Cipresso', lat:'Cupressus sempervirens', t63:30, maxDBH:80, maxAge:300, dens:'midden', evergreen:true},
+ {id:'ceder', nl:'Ceder', it:'Cedro', lat:'Cedrus libani', t63:50, maxDBH:150, maxAge:800, dens:'midden', evergreen:true},
+ {id:'sequoia', nl:'Sequoia', it:'Sequoia', lat:'Sequoiadendron giganteum', t63:30, maxDBH:300, maxAge:2000, dens:'midden', evergreen:true},
+ {id:'vlier', nl:'Gewone vlier', it:'Sambuco', lat:'Sambucus nigra', t63:10, maxDBH:30, maxAge:60, dens:'licht', evergreen:false},
+ {id:'hazelaar', nl:'Hazelaar', it:'Nocciolo', lat:'Corylus avellana', t63:15, maxDBH:25, maxAge:80, dens:'midden', evergreen:false},
+ {id:'meidoorn', nl:'Meidoorn', it:'Biancospino', lat:'Crataegus monogyna', t63:25, maxDBH:40, maxAge:150, dens:'midden', evergreen:false},
 ];
 const DEFAULT_COEF = {licht:0.045, midden:0.075, zwaar:0.11};
 
@@ -700,7 +701,7 @@ function buildSpeciesSelects(){
   const prevA = selA.value, prevB = selB.value;
   selA.innerHTML = ''; selB.innerHTML = '';
   SPECIES.forEach(sp=>{
-    const label = LANG==='it' ? sp.it : sp.nl;
+    const label = (LANG==='it' ? sp.it : sp.nl) + ' (' + sp.lat + ')';
     const o1 = document.createElement('option'); o1.value = sp.id; o1.textContent = label; selA.appendChild(o1);
     const o2 = document.createElement('option'); o2.value = sp.id; o2.textContent = label; selB.appendChild(o2);
   });
@@ -715,7 +716,7 @@ function buildSpeciesTable(){
     const tr = document.createElement('tr');
     const name = LANG==='it' ? sp.it : sp.nl;
     tr.innerHTML = `
-      <td>${name}</td>
+      <td>${name}<br><span class="lat-name">${sp.lat}</span></td>
       <td><input type="number" value="${sp.t63}" onchange="updateSpecies(${idx},'t63',this.value)"></td>
       <td><input type="number" value="${sp.maxDBH}" onchange="updateSpecies(${idx},'maxDBH',this.value)"></td>
       <td><input type="number" value="${sp.maxAge}" onchange="updateSpecies(${idx},'maxAge',this.value)"></td>
@@ -807,7 +808,7 @@ function calculate(){
   drawChart(sp, repl, ageNow, ageFuture, horizon);
 
   window.lastCalc = {
-    speciesName: LANG==='it' ? sp.it : sp.nl,
+    speciesName: (LANG==='it' ? sp.it : sp.nl) + ' (' + sp.lat + ')',
     ageNow: Math.round(ageNow),
     storedTon: co2Now/1000,
     annualKg: co2Annual,
@@ -1028,6 +1029,30 @@ function saveReportPDF(){
   window.print();
 }
 window.addEventListener('afterprint', ()=>{ document.body.classList.remove('printing'); });
+
+/* ---------------- Integriteitscontrole (copyright-bescherming) ---------------- */
+function blockApp(){
+  if(document.getElementById('co2BlockOverlay')) return;
+  const ov = document.createElement('div');
+  ov.id = 'co2BlockOverlay';
+  ov.style.cssText = 'position:fixed;inset:0;z-index:2147483647;background:#0f1611;color:#e8ece3;display:flex;align-items:center;justify-content:center;text-align:center;padding:30px;font-family:sans-serif;';
+  ov.innerHTML = '<div style="max-width:420px">' +
+    '<h2 style="color:#d9a24b;font-family:sans-serif;margin-bottom:10px">Integriteitscontrole mislukt</h2>' +
+    '<p style="font-size:13px;line-height:1.6;color:#c8d0c0">Deze app is op een manier gewijzigd die niet is toegestaan — de copyright-vermelding ontbreekt of is aangepast. Deze tool is gratis, maar uitsluitend ongewijzigd en niet-commercieel te gebruiken.</p>' +
+    '<p style="font-size:12px;margin-top:14px;color:#8fae5c">© Jan den Hollander — jandenhollander@duck.com</p>' +
+    '</div>';
+  document.body.appendChild(ov);
+}
+function checkIntegrity(){
+  const footer = document.getElementById('co2CopyFooter');
+  if(!footer || !footer.textContent.includes('Jan den Hollander') || !footer.textContent.includes('CO2-Boomwaarde')){
+    blockApp();
+  }
+}
+const integrityObserver = new MutationObserver(()=>{ checkIntegrity(); });
+integrityObserver.observe(document.body, {childList:true, subtree:true, characterData:true});
+setInterval(checkIntegrity, 4000);
+checkIntegrity();
 
 /* ---------------- Init ---------------- */
 const co2YearEl = document.getElementById('co2Year');
